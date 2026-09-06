@@ -1,0 +1,32 @@
+{
+  "app": "london-fishing-companion",
+  "schema": 2,
+  "kind": "pack",
+  "exportedAt": "2026-09-06T00:00:00Z",
+  "note": "Throwaway pack used once to prove the moderation workflow runs. Delete after.",
+  "meta": {
+    "id": "zz-moderation-test",
+    "type": "pack",
+    "title": "Moderation gate test",
+    "description": "A deliberately ordinary pack, used to confirm the automated check runs on a real pull request.",
+    "author": "MaxMana-Corner",
+    "contributedAt": "2026-09-06T00:00:00Z"
+  },
+  "catalog": {
+    "spots": [],
+    "species": [],
+    "baits": [],
+    "knots": [],
+    "tips": [
+      {
+        "id": "zz-test-tip",
+        "cat": "Reading water",
+        "title": "Check the gate before trusting the gate",
+        "body": "A moderation workflow that has only ever run on a developer machine has not been tested. Open one pull request and watch it go green before you rely on it.",
+        "custom": true,
+        "_v": 2,
+        "updatedAt": 1788652800000
+      }
+    ]
+  }
+}
