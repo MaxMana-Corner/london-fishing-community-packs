@@ -3,7 +3,20 @@
   "generatedAt": "2026-09-06T00:00:00Z",
   "note": "Placeholder until Phase 1C. From then on an Apps Script trigger regenerates this every 3 hours from the votes sheet, and commits only when a tally actually changed.",
   "scores": {
-    "example-starter-pack": { "up": 0, "down": 0, "score": 0 },
-    "example-pin-set": { "up": 0, "down": 0, "score": 0 }
+    "example-starter-pack": {
+      "up": 0,
+      "down": 0,
+      "score": 0
+    },
+    "example-pin-set": {
+      "up": 0,
+      "down": 0,
+      "score": 0
+    },
+    "zz-moderation-test": {
+      "up": 0,
+      "down": 0,
+      "score": 0
+    }
   }
 }
