@@ -4,11 +4,22 @@
   "kind": "pins",
   "exportedAt": "2026-09-06T00:00:00Z",
   "note": "EXAMPLE PIN SET — replace with real observations before submitting. See schema/README.md.",
+  "meta": {
+    "id": "example-pin-set",
+    "type": "pins",
+    "title": "Example pin set",
+    "description": "A template showing the map-pin file format: snag, pollution, hazard, good-spot and access-rating pins.",
+    "author": "MaxMana-Corner",
+    "contributedAt": "2026-09-06T00:00:00Z"
+  },
   "pins": [
     {
       "id": "example-pin-snag",
       "type": "snag",
-      "ll": [42.9584, -81.3222],
+      "ll": [
+        42.9584,
+        -81.3222
+      ],
       "title": "Submerged timber off the point",
       "note": "What it is, roughly where it sits, and what it costs you. Keep it factual.",
       "author": "MaxMana-Corner",
@@ -18,7 +29,10 @@
     {
       "id": "example-pin-pollution",
       "type": "pollution",
-      "ll": [42.9764, -81.2733],
+      "ll": [
+        42.9764,
+        -81.2733
+      ],
       "title": "Outfall discharge after heavy rain",
       "note": "Describe what you saw and when. Do not name individuals or businesses; report anything serious to the conservation authority as well.",
       "author": "MaxMana-Corner",
@@ -28,7 +42,10 @@
     {
       "id": "example-pin-hazard",
       "type": "hazard",
-      "ll": [42.9849, -81.2453],
+      "ll": [
+        42.9849,
+        -81.2453
+      ],
       "title": "Steep undercut bank, no safe exit",
       "note": "Safety information only. Say what the danger is and where it starts.",
       "author": "MaxMana-Corner",
@@ -39,10 +56,19 @@
       "id": "example-pin-access",
       "type": "access-rating",
       "spotId": "example-spot",
-      "ll": [42.9849, -81.2453],
+      "ll": [
+        42.9849,
+        -81.2453
+      ],
       "title": "Access rating — Example Access Point",
       "note": "An access-rating pin renders at its spot's coordinates and carries the five-part rating in its card.",
-      "access": { "parking": 4, "walk": 4, "footing": 3, "amenities": 2, "cost": 5 },
+      "access": {
+        "parking": 4,
+        "walk": 4,
+        "footing": 3,
+        "amenities": 2,
+        "cost": 5
+      },
       "author": "MaxMana-Corner",
       "createdAt": 1788652800000,
       "updatedAt": 1788652800000

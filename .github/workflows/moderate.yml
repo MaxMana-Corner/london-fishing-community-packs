@@ -1,0 +1,51 @@
+name: Moderation check
+
+# Runs on every pull request that touches community content.
+# Make this a REQUIRED status check in Settings -> Branches -> main,
+# otherwise it reports but does not actually gate a merge.
+
+on:
+  pull_request:
+    paths:
+      - "packs/**"
+      - "locations/**"
+      - "pins/**"
+      - "moderation/blocklist.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  moderate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Need the base branch too, to work out what actually changed.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Work out which content files this PR changed
+        id: changed
+        run: |
+          git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
+          FILES=$(git diff --name-only --diff-filter=d \
+            "origin/${{ github.base_ref }}...HEAD" \
+            -- packs locations pins | tr '\n' ' ')
+          echo "files=$FILES" >> "$GITHUB_OUTPUT"
+          echo "Changed: ${FILES:-<none>}"
+
+      - name: Scan them
+        run: node .github/scripts/moderate.mjs ${{ steps.changed.outputs.files }}
+
+      - name: Check the derived index is not hand-edited
+        run: |
+          if git diff --name-only --diff-filter=d \
+            "origin/${{ github.base_ref }}...HEAD" | grep -qE '^(index\.json|stats\.json)$'; then
+            echo "::error::index.json and stats.json are generated. Remove them from this pull request; they are rebuilt automatically on merge."
+            exit 1
+          fi
+          echo "Generated files untouched."

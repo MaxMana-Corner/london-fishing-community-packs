@@ -1,0 +1,47 @@
+name: Rebuild index
+
+# index.json and stats.json are derived from the content folders.
+# Nobody hand-edits them; this rebuilds them whenever main changes.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packs/**"
+      - "locations/**"
+      - "pins/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# If two merges land close together, let the first finish rather than
+# racing two commits onto main.
+concurrency:
+  group: build-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Rebuild
+        run: node .github/scripts/build-index.mjs
+
+      - name: Commit if anything actually changed
+        run: |
+          if git diff --quiet -- index.json stats.json; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.json stats.json
+          git commit -m "Rebuild directory index"
+          git push
