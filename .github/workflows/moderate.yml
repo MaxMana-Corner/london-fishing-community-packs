@@ -17,6 +17,10 @@ permissions:
 
 jobs:
   moderate:
+    # This name is what appears in the branch-protection
+    # "Add checks" list. Set explicitly so it matches the workflow name
+    # rather than defaulting to the job id.
+    name: Moderation check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
