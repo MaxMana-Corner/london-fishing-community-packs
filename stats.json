@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "generatedAt": "2026-09-06T23:52:25.207Z",
+  "generatedAt": "2026-09-06T23:54:36.265Z",
   "note": "Derived file. Regenerated from the vote ledger by community.gs on a 3-hourly trigger. Do not hand-edit.",
   "scores": {
     "example-starter-pack": {
-      "up": 1,
+      "up": 0,
       "down": 0,
-      "score": 1
+      "score": 0
     },
     "example-pin-set": {
       "up": 0,
