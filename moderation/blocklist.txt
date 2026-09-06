@@ -1,0 +1,19 @@
+# Moderation blocklist
+#
+# One term per line. Blank lines and lines starting with # are ignored.
+# Matching is case-insensitive and substring-based, so keep entries specific:
+# a short fragment will produce false positives on innocent words.
+#
+# Both the GitHub Action (which reads this file from the checkout) and the
+# submission Apps Script (which fetches this file's raw URL) use this list.
+# It is deliberately kept in the repository so it can be tuned by pull
+# request rather than by editing a script.
+#
+# This is a coarse first filter, not the decision. Every submission is also
+# read by a human before it is merged.
+#
+# To extend it, append terms below. A published starter list such as
+# LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words is a
+# reasonable base to draw from.
+#
+# --- terms ---
