@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "generatedAt": "2026-09-06T00:00:00Z",
-  "note": "Placeholder until Phase 1C. From then on an Apps Script trigger regenerates this every 3 hours from the votes sheet, and commits only when a tally actually changed.",
+  "generatedAt": "2026-09-06T23:52:25.207Z",
+  "note": "Derived file. Regenerated from the vote ledger by community.gs on a 3-hourly trigger. Do not hand-edit.",
   "scores": {
     "example-starter-pack": {
-      "up": 0,
+      "up": 1,
       "down": 0,
-      "score": 0
+      "score": 1
     },
     "example-pin-set": {
       "up": 0,
