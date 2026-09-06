@@ -1,0 +1,49 @@
+{
+  "app": "london-fishing-companion",
+  "exportedAt": "2026-09-06T22:32:58.442Z",
+  "note": "Automated end-to-end test of the submission bridge. Safe to close and delete.",
+  "schema": 2,
+  "kind": "pack",
+  "catalog": {
+    "spots": [
+      {
+        "id": "share-test-spot",
+        "name": "Test Bend",
+        "area": "North",
+        "water": "Thames",
+        "ll": [
+          42.97,
+          -81.25
+        ],
+        "blurb": "A test spot for the share flow.",
+        "access": {
+          "parking": 4,
+          "walk": 4,
+          "footing": 3,
+          "amenities": 2,
+          "cost": 5
+        },
+        "tip": "Fish the seam."
+      }
+    ],
+    "species": [],
+    "baits": [],
+    "knots": [],
+    "tips": [
+      {
+        "id": "share-test-tip",
+        "cat": "Reading water",
+        "title": "Test tip for sharing",
+        "body": "This exists only to exercise the share flow."
+      }
+    ]
+  },
+  "meta": {
+    "id": "test-share-flow-end-to-end-delete-me-89cec289",
+    "type": "pack",
+    "title": "TEST - share flow end to end (delete me)",
+    "description": "Automated end-to-end test of the submission bridge. Safe to close and delete.",
+    "author": "MaxMana-Corner",
+    "contributedAt": "2026-09-06T22:33:05.398Z"
+  }
+}
