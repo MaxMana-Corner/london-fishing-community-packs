@@ -1,0 +1,43 @@
+{
+  "app": "london-fishing-companion",
+  "exportedAt": "2026-09-07T04:32:46.560Z",
+  "note": "End-to-end test of the pin submission path added on 2026-09-07. The pins are not real local knowledge. Safe to close without merging.",
+  "schema": 1,
+  "kind": "pins",
+  "pins": [
+    {
+      "id": "mine-snag",
+      "type": "snag",
+      "ll": [
+        42.9853,
+        -81.2567
+      ],
+      "title": "TEST SUBMISSION — not real, please close",
+      "note": "End-to-end test of the in-app pin submission path. This is not local knowledge and should not be merged.",
+      "createdAt": 1788754352390,
+      "updatedAt": 1788754352390,
+      "spotId": "forks"
+    },
+    {
+      "id": "mine-good",
+      "type": "good-spot",
+      "ll": [
+        42.986,
+        -81.257
+      ],
+      "title": "TEST SUBMISSION — not real, please close",
+      "note": "Second test pin. Not local knowledge. Should not be merged.",
+      "createdAt": 1788754352390,
+      "updatedAt": 1788754352390,
+      "spotId": null
+    }
+  ],
+  "meta": {
+    "id": "test-in-app-pin-submission-please-close-ffefbf21",
+    "type": "pins",
+    "title": "TEST — in-app pin submission (please close)",
+    "description": "End-to-end test of the pin submission path added on 2026-09-07. The pins are not real local knowledge. Safe to close without merging.",
+    "author": "MaxMana-Corner",
+    "contributedAt": "2026-09-07T04:33:13.133Z"
+  }
+}
