@@ -1,0 +1,136 @@
+# URL blocklist
+#
+# Checked against the FULL url of any reference link before that link is
+# allowed to leave a device in a community pack, and again by the moderation
+# Action on the pull request. One term per line, lower case. Blank lines and
+# lines starting with # are ignored. Matching is substring, case-insensitive,
+# against the whole url including the domain, the path and the query.
+#
+# This is deliberately owner-tweakable, like moderation/blocklist.txt beside
+# it. Add to it freely; that is what it is for.
+#
+# WHAT THIS CAN AND CANNOT DO
+# ---------------------------
+# It reads the address. It cannot read the page. A clean-looking url can point
+# anywhere, and a shortener hides the destination entirely — which is why the
+# shortener domains below are blocked outright rather than inspected.
+#
+# The app also never shows a raw address: a reader sees the label the
+# contributor wrote and the bare domain underneath, so they can judge where
+# they are about to go before they go there. The blocklist is the first gate,
+# the domain line is the second, and the person tapping is the third.
+
+# ---- adult ----
+porn
+xxx
+sex
+nsfw
+adult
+escort
+hentai
+camgirl
+onlyfans
+fansly
+chaturbate
+xvideos
+pornhub
+redtube
+youporn
+xhamster
+brazzers
+nude
+nudes
+milf
+fetish
+bdsm
+
+# ---- gambling and betting ----
+casino
+betting
+sportsbook
+pokerstars
+slots
+roulette
+blackjack
+bet365
+draftkings
+fanduel
+bookmaker
+wager
+
+# ---- crypto and financial bait ----
+crypto-giveaway
+freecrypto
+airdrop
+metamask-
+wallet-connect
+seed-phrase
+double-your
+getrich
+investnow
+binaryoption
+forexsignal
+
+# ---- pirated and cracked media ----
+torrent
+1337x
+piratebay
+thepiratebay
+rarbg
+warez
+crack
+keygen
+nulled
+putlocker
+123movies
+fmovies
+
+# ---- malware, phishing and scam patterns ----
+freegift
+free-gift
+claimprize
+prizewinner
+verify-account
+account-verify
+login-secure
+secure-login
+signin-
+password-reset
+phish
+malware
+virusscan
+clickhere-now
+
+# ---- url shorteners: destination is unknowable, so refuse them ----
+# A shortener defeats both the blocklist and the domain line the reader is
+# shown. Contributors should paste the real address.
+bit.ly
+tinyurl
+t.co/
+goo.gl
+ow.ly
+buff.ly
+is.gd
+cutt.ly
+rebrand.ly
+shorturl
+tiny.cc
+rb.gy
+short.link
+
+# ---- slurs and abuse ----
+# Kept as a short set of unambiguous stems. Extend as needed; the general
+# profanity list in blocklist.txt is applied to the LABEL text separately,
+# because a rude word in a label is a different problem from a rude word in
+# a domain.
+fuck
+shit
+cunt
+bitch
+bastard
+slut
+whore
+nigg
+fag
+retard
+rape

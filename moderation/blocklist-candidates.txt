@@ -1,0 +1,114 @@
+# Blocklist CANDIDATES - NOT LOADED BY ANYTHING
+#
+# This file is a proposal parked for review. Nothing reads it: readBlocklist()
+# in .github/scripts/lib.mjs opens moderation/blocklist.txt and only that, so
+# these terms are inert until somebody deliberately moves them across.
+#
+# They were drafted alongside the matcher fix (whole-word matching, with
+# *term* opting in to substring) and they are the reason that fix was needed:
+# under the old substring match, turning any of this on flagged "smallmouth
+# bass" via "ass" and "crappie" via "crap".
+#
+# BEFORE ENABLING ANY OF THIS, read tools/check-blocklist.mjs. It carries
+# fixtures of real fishing vocabulary that must NOT be flagged. Move terms
+# across a section at a time and run that test after each one - the failure
+# mode worth guarding is crying wolf on honest submissions, not missing a bad
+# one, because a human reads every submission before it merges anyway.
+#
+# Open questions for that review:
+#   - the slur section is the one a coarse filter helps least with and the one
+#     most worth having; is a whole-word list even the right tool
+#   - "commercial solicitation" catches phrases, not words, and phrases drift
+#   - none of this handles deliberate obfuscation, on purpose
+
+# ---- sexual / adult -------------------------------------------------------
+porn
+porno
+pornography
+nsfw
+xxx
+nude
+nudes
+onlyfans
+escort
+escorts
+hookup
+camgirl
+sexcam
+milf
+
+# ---- slurs and targeted abuse ---------------------------------------------
+# Whole-word only, deliberately. Extend this section freely; it is the one
+# that matters most and the one a coarse filter helps least with.
+nigger
+nigga
+faggot
+fag
+tranny
+retard
+retarded
+spic
+chink
+kike
+wetback
+towelhead
+paki
+coon
+dyke
+gook
+
+# ---- harassment / violence ------------------------------------------------
+kill yourself
+kys
+rape
+rapist
+molest
+pedophile
+paedophile
+nonce
+
+# ---- gambling -------------------------------------------------------------
+casino
+casinos
+betting site
+sportsbook
+online slots
+poker bonus
+
+# ---- financial spam and crypto bait ---------------------------------------
+free money
+make money fast
+get rich quick
+work from home
+investment opportunity
+double your
+guaranteed returns
+crypto giveaway
+airdrop
+seed phrase
+private key
+wallet connect
+forex signals
+
+# ---- commercial solicitation ----------------------------------------------
+# Not banned words as such - a submission that reads like an advert is not a
+# fishing tip, and these are the phrases adverts actually use.
+buy now
+click here
+limited time offer
+act now
+dm me
+whatsapp me
+telegram me
+promo code
+discount code
+affiliate link
+
+# ---- credential and contact harvesting ------------------------------------
+send me your
+your password
+login here
+verify your account
+bank details
+e-transfer
+etransfer
