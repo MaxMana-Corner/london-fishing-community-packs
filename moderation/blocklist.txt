@@ -1,19 +1,43 @@
 # Moderation blocklist
 #
+# INTENTIONALLY EMPTY. Nothing is blocked by word right now.
+#
+# The machinery around this file is finished and tested; the term list is the
+# part still to be reviewed. Candidates are parked in blocklist-candidates.txt
+# beside this file, which nothing loads. Moving terms across is a deliberate
+# decision, taken a section at a time, with tools/check-blocklist.mjs run after
+# each one.
+#
 # One term per line. Blank lines and lines starting with # are ignored.
-# Matching is case-insensitive and substring-based, so keep entries specific:
-# a short fragment will produce false positives on innocent words.
+#
+# MATCHING IS WHOLE-WORD AND CASE-INSENSITIVE.
+#
+#   casino     matches "a casino"   NOT "casinoish", NOT "bocasino"
+#   *casino*   matches all three    (asterisks opt in to substring matching)
+#
+# Multi-word terms work; the boundary goes around the whole phrase.
+#
+# WHY WHOLE-WORD, AND WHY THIS FILE WAS EMPTY BEFORE
+# --------------------------------------------------
+# This used to match substrings. On fishing prose that is unusable:
+# "smallmouth bass" contains "ass", "crappie" contains "crap", and "peacock
+# herl" and "cockchafer" are a fly-tying material and a bait. Put ordinary
+# profanity in here under substring matching and every honest submission
+# failed - so the gate got switched off and protected nothing. That is a worse
+# outcome than no filter, because it looks like protection.
+#
+# The matcher is fixed. The list staying empty now is a choice, not a bug.
+#
+# SCOPE WHEN IT IS TURNED ON
+# --------------------------
+# Applies to ALL free text in a submission, including the prose fields of a
+# custom tactic (name, gist, steps, gear, tell, fail), which travel in packs.
 #
 # Both the GitHub Action (which reads this file from the checkout) and the
-# submission Apps Script (which fetches this file's raw URL) use this list.
-# It is deliberately kept in the repository so it can be tuned by pull
-# request rather than by editing a script.
+# submission Apps Script (which fetches this file's raw URL) use this list, so
+# it can be tuned by pull request rather than by editing a script.
 #
-# This is a coarse first filter, not the decision. Every submission is also
-# read by a human before it is merged.
-#
-# To extend it, append terms below. A published starter list such as
-# LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words is a
-# reasonable base to draw from.
-#
-# --- terms ---
+# This is a coarse first filter, not the decision. Every submission is read by
+# a human before it is merged. It does not handle leetspeak or deliberate
+# obfuscation, and it is not supposed to - a filter that claims to and does not
+# is worse than one with honest limits.

@@ -31,9 +31,42 @@ export function readBlocklist(root) {
     .filter((l) => l && !l.startsWith("#"));
 }
 
+/* Match on WORD BOUNDARIES, not substrings.
+
+   This started as `hay.includes(w)`, which is why moderation/blocklist.txt
+   sat empty for so long: on fishing prose a substring filter is not merely
+   noisy, it is unusable. "smallmouth bass" contains "ass". "crappie"
+   contains "crap". "peacock herl" and "cockchafer" are a fly-tying material
+   and a bait. Populate the list with ordinary profanity under substring
+   matching and every honest submission fails, so the gate gets switched off
+   and protects nothing.
+
+   Default is therefore a whole-word match. A term that genuinely needs to
+   match inside other text - a domain fragment, a spam string glued to other
+   characters - opts in explicitly by wrapping itself in asterisks:
+
+     casino        matches "a casino"      not "casinoish" and not "bocasino"
+     *casino*      matches all three
+
+   Multi-word terms work: the boundary goes around the whole phrase.
+   Leetspeak and deliberate obfuscation are NOT handled here on purpose -
+   this is a coarse first filter and a human reads every submission after
+   it. Pretending otherwise would be the more dangerous mistake. */
+const ESC = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 export function scan(text, words) {
   const hay = String(text || "").toLowerCase();
-  return words.filter((w) => hay.includes(w));
+  return words.filter((w) => {
+    const sub = w.length > 2 && w.startsWith("*") && w.endsWith("*");
+    const term = sub ? w.slice(1, -1) : w;
+    if (!term) return false;
+    if (sub) return hay.includes(term);
+    /*  does not fire next to punctuation-heavy or non-ASCII neighbours the
+       way people expect, so the boundary is spelled out as "not a letter,
+       digit or apostrophe" on each side. */
+    const re = new RegExp("(^|[^a-z0-9'])" + ESC(term) + "([^a-z0-9']|$)", "i");
+    return re.test(hay);
+  });
 }
 
 /* The same shape rules community.gs enforces, applied again here.
