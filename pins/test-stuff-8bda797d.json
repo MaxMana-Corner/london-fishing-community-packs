@@ -1,0 +1,30 @@
+{
+  "app": "london-fishing-companion",
+  "exportedAt": "2026-09-09T05:17:27.532Z",
+  "note": "Our stuff",
+  "schema": 1,
+  "kind": "pins",
+  "pins": [
+    {
+      "id": "p_mttn8shtctld4h",
+      "type": "good-spot",
+      "ll": [
+        42.960262259626994,
+        -81.32573743796925
+      ],
+      "title": "Our spot",
+      "note": "",
+      "createdAt": 1788930858305,
+      "updatedAt": 1788930858305,
+      "spotId": "springbank"
+    }
+  ],
+  "meta": {
+    "id": "test-stuff-8bda797d",
+    "type": "pins",
+    "title": "Test stuff",
+    "description": "Our stuff",
+    "author": "MaxMana",
+    "contributedAt": "2026-09-09T05:17:48.396Z"
+  }
+}
